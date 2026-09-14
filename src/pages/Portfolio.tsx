@@ -1,6 +1,6 @@
 import React, { Children, lazy } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Linkedin } from 'lucide-react';
+import { ArrowUpRight, Linkedin, LockIcon } from 'lucide-react';
 // Animation variants for consistent editorial motion
 const fadeInUp = {
   hidden: {
@@ -294,6 +294,119 @@ export function Portfolio() {
               </motion.span>
             </div>
             <div className="md:col-span-8 md:col-start-5">
+              {/* FEATURED — Graduation Project */}
+              <motion.article
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                  once: true,
+                  margin: '-10%'
+                }}
+                variants={staggerContainer}
+                className="mb-20 md:mb-24 border-b border-[var(--text-primary)]/10 pb-16">
+                
+                <motion.div variants={fadeInUp} className="mb-6">
+                  <span className="inline-block bg-[var(--text-primary)] text-[var(--bg-paper)] text-xs font-semibold uppercase tracking-widest px-3 py-1.5">
+                    Graduation Project — 2025
+                  </span>
+                </motion.div>
+                <motion.h3
+                  variants={fadeInUp}
+                  className="font-serif text-3xl md:text-5xl leading-[1.1] mb-6 max-w-3xl">
+                  
+                  Egypt Pharmaceutical Market Analysis
+                </motion.h3>
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-lg md:text-xl text-[var(--text-primary)] leading-relaxed mb-5 max-w-3xl">
+                  
+                  Analyzed aggregated pharmaceutical sales data for the Egyptian
+                  market across 2021–2025, surfacing sales trends, market share
+                  shifts, and performance gaps between therapeutic categories,
+                  products, and pharmaceutical companies.
+                </motion.p>
+                <motion.p
+                  variants={fadeInUp}
+                  className="text-[var(--text-secondary)] leading-relaxed mb-10 max-w-3xl">
+                  
+                  Work covered data cleaning, segmentation, year-over-year and
+                  year-to-date comparison, and CAGR growth analysis to isolate
+                  underperforming segments and the market's key drivers.
+                  Findings were delivered as Power BI dashboards and summary
+                  tables built to support business recommendations.
+                </motion.p>
+
+                {/* Confidential gallery */}
+                <motion.div variants={fadeInUp}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <LockIcon className="w-4 h-4 text-[var(--color-accent)] shrink-0" />
+                    <p className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+                      Client data — figures softened, visuals intact
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    {[
+                    {
+                      src: "/1.jpg",
+                      caption: 'Market overview — KPIs, revenue trend, CAGR'
+                    },
+                    {
+                      src: "/2.jpg",
+                      caption: 'Revenue and market share by therapeutic class'
+                    },
+                    {
+                      src: "/3.jpg",
+                      caption: 'Corporation-level value and share ranking'
+                    },
+                    {
+                      src: "/4.jpg",
+                      caption: 'Product-level year-over-year summary table'
+                    }].
+                    map((shot) =>
+                    <figure key={shot.src} className="min-w-0">
+                        <div className="relative overflow-hidden border border-[var(--text-primary)]/10 bg-white">
+                          <img
+                          src={shot.src}
+                          alt={shot.caption}
+                          loading="lazy"
+                          draggable={false}
+                          className="w-full h-auto block blur-[1px] select-none pointer-events-none" />
+                        
+                          <span className="absolute bottom-0 left-0 bg-[var(--text-primary)]/85 text-[var(--bg-paper)] text-[10px] uppercase tracking-widest px-2 py-1">
+                            Power BI
+                          </span>
+                        </div>
+                        <figcaption className="mt-2 text-sm text-[var(--text-secondary)]">
+                          {shot.caption}
+                        </figcaption>
+                      </figure>
+                    )}
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  variants={fadeInUp}
+                  className="flex flex-wrap gap-2 mt-10">
+                  
+                  {[
+                  'Power BI',
+                  'Excel',
+                  'EDA',
+                  'YoY Analysis',
+                  'CAGR',
+                  'Market Share',
+                  'Dashboarding'].
+                  map((tag) =>
+                  <span
+                    key={tag}
+                    className="text-xs uppercase tracking-widest border border-[var(--text-primary)]/20 px-3 py-1.5 text-[var(--text-primary)]">
+                    
+                      {tag}
+                    </span>
+                  )}
+                </motion.div>
+              </motion.article>
+
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -306,7 +419,7 @@ export function Portfolio() {
                 
                 {[
                 {
-                  number: '01',
+                  number: '02',
                   title: 'Sales Data Analysis Dashboard',
                   description:
                   'Interactive Excel dashboard analyzing sales performance across regions, categories, and customer segments. Features KPI cards, dynamic slicers, and charts for sales trends, top states, and regional profitability.',
@@ -322,7 +435,7 @@ export function Portfolio() {
                   'Sales Dashboard with KPI cards for total customers, profit, products, and sales'
                 },
                 {
-                  number: '02',
+                  number: '03',
                   title: 'Power Query Data Cleaning & Automation',
                   description:
                   'Automated ETL workflow built with Power Query to import, clean, merge, and transform multiple CSV datasets. Handled duplicates, missing values, and type inconsistencies, with calculated columns for Total Sales and Profit Margin.',
@@ -333,7 +446,7 @@ export function Portfolio() {
                   'Cleaned hierarchical pivot table breakdown by region, state, and category'
                 },
                 {
-                  number: '03',
+                  number: '04',
                   title: 'Power Pivot Profitability Analysis',
                   description:
                   'Relational data model built with Power Pivot and DAX measures to analyze profitability across regions, products, and segments. Identified top 5 profitable products and regional contribution to overall margin.',
@@ -344,7 +457,7 @@ export function Portfolio() {
                   'Top 5 profitable products ranking and regional profitability percentage analysis'
                 },
                 {
-                  number: '04',
+                  number: '05',
                   title: 'Customer Trends & Visualization',
                   description:
                   'Suite of analytical visualizations exploring sales trends, customer behavior, and demographic distributions. Includes trendlines for forecasting and regional performance comparisons.',
@@ -355,7 +468,7 @@ export function Portfolio() {
                   'Sales dashboard 2014-2017 with sales over time, top 5 cities pie chart, and revenue by category'
                 },
                 {
-                  number: '05',
+                  number: '06',
                   title: 'Mobile Phones Sales Dashboard',
                   description:
                   'Market analytics dashboard for the mobile phone industry — tracks sales volume, brand market share, price distribution, and product ratings. Compared original vs. discounted prices and tiered products by price level.',
